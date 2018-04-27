@@ -1,0 +1,15 @@
+#!/bin/bash
+if [ -z "$1" ]
+  then
+        echo "Usage: cut {input} {output} {start time: hh:mm:ss} {duration: hh:mm:ss}"
+        exit 1
+fi
+
+if [ -z "$2" ]
+  then
+        echo "Usage: cut {input} {output} {start time: hh:mm:ss} {duration: hh:mm:ss}"
+        exit 1
+fi
+
+
+ffmpeg -i $1 -strict -2 -ss $3 -t $4 -async 1 $2

@@ -1,0 +1,22 @@
+#!/bin/bash
+if [ -z "$1" ]
+  then
+        echo "Usage: compress {input} {output} [bitrate=2018k]"
+        exit 1
+fi
+
+if [ -z "$2" ]
+  then
+        echo "Usage: compress {input} {output} [bitrate=2018k]"
+        exit 1
+fi
+
+if [ -z "$3" ]
+  then
+	let bitrate="2048k"
+else
+	let bitrate="$3"
+fi
+
+
+ffmpeg -i $1 -r 30 -s hd720  -c:v mpeg4 -b:v $3 -strict -2 $2

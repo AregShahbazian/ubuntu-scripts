@@ -1,0 +1,31 @@
+#!/bin/bash
+if [ -z "$1" ]
+  then
+	echo "Usage: resize {resize percentage} {jump=0}"
+	exit 1
+fi
+
+if [ -z "$2" ]
+  then
+	let jump=1
+else
+	let jump=$2
+fi
+
+
+rm -rf temp && mkdir temp
+idx=0
+trap "exit" INT
+for f in *.JPG; 
+do 
+	#echo $idx
+	if [ "$idx" -eq "0" ]
+     	  then	
+		echo "Processing $f file.."
+		convert $f -resize $1% "temp/$f"
+	fi
+
+	let idx=($idx+1)%$jump
+
+done
+
