@@ -16,7 +16,7 @@ fi
 rm -rf temp && mkdir temp
 idx=0
 trap "exit" INT
-for f in *.JPG; 
+for f in *.png; 
 do 
 	#echo $idx
 	if [ "$idx" -eq "0" ]
