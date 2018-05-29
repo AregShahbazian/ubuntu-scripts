@@ -1,0 +1,2 @@
+#!/bin/bash
+/home/areg/Android/Sdk/tools/emulator @Nexus_5X_API_23
